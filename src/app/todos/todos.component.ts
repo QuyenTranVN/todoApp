@@ -9,6 +9,7 @@ import { todo } from './../models/todo';
 export class TodosComponent implements OnInit {
   todos: todo[];
   inputTodo: string = '';
+  date: Date;
   constructor() {}
 
   ngOnInit(): void {
@@ -22,10 +23,12 @@ export class TodosComponent implements OnInit {
         completed: false,
       },
       {
-        content: 'walk with dog',
+        content: 'Walk with dog',
         completed: false,
       },
     ];
+    this.date = new Date();
+    this.date.setDate(this.date.getDate());
   }
   toggleDone(id: number) {
     this.todos.map((v, i) => {
@@ -44,4 +47,5 @@ export class TodosComponent implements OnInit {
     });
     this.inputTodo = '';
   }
+  isShow() {}
 }

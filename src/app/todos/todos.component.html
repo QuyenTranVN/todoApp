@@ -5,7 +5,10 @@
   >
     <!-- <div class="id">{{ i }}</div> -->
     <input type="checkbox" class="checkbox" (click)="toggleDone(i)" />
-    <div class="content">{{ todo.content }}</div>
+    <div class="content">
+      {{ todo.content }}
+      <p class="date">{{ date | date: "medium" }}</p>
+    </div>
     <button class="delete" (click)="deleteTodo(i)">Remove</button>
   </div>
   <form>
