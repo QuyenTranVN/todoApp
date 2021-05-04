@@ -1,0 +1,36 @@
+<app-search
+  (searchTodo)="searchTodoEmit($event)"
+  (isChecked)="checkedEmit($event)"
+></app-search>
+<div class="todos">
+  <div *ngFor="let todo of todos | filter: searchTodo; let i = index">
+    <div
+      class="todo {{ todo.completed ? 'done' : '' }}"
+      *ngIf="!isChecked || (isChecked && todo.completed)"
+    >
+      <input type="checkbox" class="checkbox" (click)="toggleDone(i)" />
+      <div class="content">
+        {{ todo.content }}
+        <p class="date">{{ todo.date | date: "medium" }}</p>
+      </div>
+      <button class="delete" (click)="deleteTodo(i)">Remove</button>
+    </div>
+  </div>
+  <form>
+    <input
+      autocomplete="off"
+      type="text"
+      name="inputTodo"
+      placeholder="What do you need to do?"
+      class="todo-input"
+      [(ngModel)]="inputTodo"
+    />
+    <button
+      [disabled]="inputTodo == ''"
+      class="todo-submit"
+      (click)="addTodo()"
+    >
+      Add todo
+    </button>
+  </form>
+</div>

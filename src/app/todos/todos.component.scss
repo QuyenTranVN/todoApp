@@ -1,0 +1,72 @@
+.todos {
+  .todo {
+    padding: 10px 15px;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    background-color: #fff;
+    border-bottom: 1px solid;
+    &:nth-child(even) {
+      background-color: #eee;
+    }
+    &:last-of-type {
+      border-bottom: 0;
+    }
+    .id {
+      flex: 1 1 50px;
+    }
+    .content {
+      flex: 1 1 100%;
+      font-weight: bold;
+      font-size: 18px;
+      .date {
+        font-size: 16px;
+        margin-top: 5px;
+        font-weight: normal;
+      }
+    }
+    &.done .content {
+      text-decoration: line-through;
+      font-weight: normal;
+      color: rgb(124, 124, 124);
+    }
+    .checkbox {
+      margin: auto 10px auto 0;
+    }
+    .delete {
+      padding: 10px 15px;
+      background-color: rgb(255, 46, 78);
+      outline: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+  }
+}
+.todo-input {
+  margin: auto;
+  display: block;
+  width: 50%;
+  padding: 10px 15px;
+  appearance: none;
+  border: 1px solid grey;
+  background-color: #f3f3f3;
+  margin-top: 15px;
+  font-size: 20px;
+  outline: none;
+}
+.todo-submit {
+  display: block;
+  width: 50%;
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: rgb(78, 142, 216);
+  color: #fff;
+  margin: 15px auto;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
