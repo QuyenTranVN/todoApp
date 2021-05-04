@@ -4,11 +4,11 @@
       class="searchBox"
       type="text"
       placeholder="Search todos"
-      [(ngModel)]="searchTodo"
-      name="searchTodo"
+      (keyup)="search($event)"
+      autocomplete="off"
     />
     <div class="search__text">
-      <input type="checkbox" value="done" />
+      <input type="checkbox" (click)="check($event)" />
       <p>Show conpleted todos</p>
     </div>
   </form>

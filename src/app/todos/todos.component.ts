@@ -8,8 +8,9 @@ import { todo } from './../models/todo';
 })
 export class TodosComponent implements OnInit {
   todos: todo[];
+  searchTodo: string;
+  isChecked: boolean;
   inputTodo: string = '';
-  date: Date;
   constructor() {}
 
   ngOnInit(): void {
@@ -17,35 +18,43 @@ export class TodosComponent implements OnInit {
       {
         content: 'Film introduction video',
         completed: false,
+        date: new Date(),
       },
       {
         content: 'Pay bills',
         completed: false,
+        date: new Date(),
       },
       {
         content: 'Walk with dog',
         completed: false,
+        date: new Date(),
       },
     ];
-    this.date = new Date();
-    this.date.setDate(this.date.getDate());
   }
-  toggleDone(id: number) {
+  toggleDone(index: number) {
     this.todos.map((v, i) => {
-      if (i == id) v.completed = !v.completed;
+      if (i == index) v.completed = !v.completed;
       return v;
     });
   }
-  deleteTodo(id: number) {
-    this.todos = this.todos.filter((v, i) => i !== id);
+  deleteTodo(index: number) {
+    this.todos = this.todos.filter((v, i) => i !== index);
   }
 
   addTodo() {
     this.todos.push({
       content: this.inputTodo,
       completed: false,
+      date: new Date(),
     });
     this.inputTodo = '';
   }
-  isShow() {}
+
+  searchTodoEmit(event: any) {
+    this.searchTodo = event;
+  }
+  checkedEmit(event: any) {
+    this.isChecked = event;
+  }
 }
